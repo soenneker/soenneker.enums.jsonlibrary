@@ -8,5 +8,5 @@
 ## Installation
 
 ```
-Install-Package Soenneker.Enums.JsonLibrary
+dotnet add package Soenneker.Enums.JsonLibrary
 ```
