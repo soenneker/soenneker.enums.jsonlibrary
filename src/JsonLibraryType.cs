@@ -1,17 +1,20 @@
-﻿namespace Soenneker.Enums.JsonLibrary;
+﻿using Intellenum;
+
+namespace Soenneker.Enums.JsonLibrary;
 
 /// <summary>
 /// An enumeration for common JSON library types
 /// </summary>
-public enum JsonLibraryType
+[Intellenum<int>]
+public sealed partial class JsonLibraryType
 {
     /// <summary>
     /// System.Text.Json
     /// </summary>
-    SystemTextJson = 0,
+    public static readonly JsonLibraryType SystemTextJson = new(0);
 
     /// <summary>
     /// JSON.net
     /// </summary>
-    Newtonsoft = 1
+    public static readonly JsonLibraryType Newtonsoft = new(1);
 }
