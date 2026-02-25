@@ -1,11 +1,11 @@
-﻿using Intellenum;
+﻿using Soenneker.Gen.EnumValues;
 
 namespace Soenneker.Enums.JsonLibrary;
 
 /// <summary>
 /// An enumeration for common JSON library types
 /// </summary>
-[Intellenum<int>]
+[EnumValue<int>]
 public sealed partial class JsonLibraryType
 {
     /// <summary>
