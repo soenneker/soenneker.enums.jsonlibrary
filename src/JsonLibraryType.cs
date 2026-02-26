@@ -5,7 +5,7 @@ namespace Soenneker.Enums.JsonLibrary;
 /// <summary>
 /// An enumeration for common JSON library types
 /// </summary>
-[EnumValue<int>]
+[EnumValue]
 public sealed partial class JsonLibraryType
 {
     /// <summary>
