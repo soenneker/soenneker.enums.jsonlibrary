@@ -1,16 +1,15 @@
-using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Enums.JsonLibrary.Tests;
 
-[Collection("Collection")]
-public class JsonLibraryTypeTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public class JsonLibraryTypeTests : HostedUnitTest
 {
-    public JsonLibraryTypeTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public JsonLibraryTypeTests(Host host) : base(host)
     {
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
