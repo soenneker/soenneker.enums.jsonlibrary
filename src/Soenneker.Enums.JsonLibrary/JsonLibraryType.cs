@@ -3,18 +3,18 @@
 namespace Soenneker.Enums.JsonLibrary;
 
 /// <summary>
-/// An enumeration for common JSON library types
+/// Identifies the .NET JSON serialization library used to process a payload.
 /// </summary>
 [EnumValue]
 public sealed partial class JsonLibraryType
 {
     /// <summary>
-    /// System.Text.Json
+    /// The built-in <c>System.Text.Json</c> serializer.
     /// </summary>
     public static readonly JsonLibraryType SystemTextJson = new(0);
 
     /// <summary>
-    /// JSON.net
+    /// The Newtonsoft.Json serializer, also known as Json.NET.
     /// </summary>
     public static readonly JsonLibraryType Newtonsoft = new(1);
 }
