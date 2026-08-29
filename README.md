@@ -3,11 +3,23 @@
 [![](https://img.shields.io/nuget/dt/Soenneker.Enums.JsonLibrary.svg?style=for-the-badge)](https://www.nuget.org/packages/Soenneker.Enums.JsonLibrary/)
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.enums.jsonlibrary/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/soenneker/soenneker.enums.jsonlibrary/actions/workflows/codeql.yml)
 
-# ![](https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png) Soenneker.Enums.JsonLibrary
-### An enumeration for common JSON library types
+# Soenneker.Enums.JsonLibrary
 
-## Installation
+Identifies the .NET JSON serialization library used to process a payload.
 
-```
+## Install
+
+```bash
 dotnet add package Soenneker.Enums.JsonLibrary
 ```
+
+## What you get
+
+- `JsonLibraryType` — Identifies the .NET JSON serialization library used to process a payload.
+
+## API at a glance
+
+| API | What it does | Result / important behavior |
+| --- | --- | --- |
+| `JsonLibraryType.SystemTextJson` | The built-in `System.Text.Json` serializer. | The built-in `System.Text.Json` serializer. |
+| `JsonLibraryType.Newtonsoft` | The Newtonsoft.Json serializer, also known as Json.NET. | The Newtonsoft.Json serializer, also known as Json.NET. |
