@@ -5,7 +5,7 @@
 
 # Soenneker.Enums.JsonLibrary
 
-Identifies the .NET JSON serialization library used to process a payload.
+An integer-backed enum-value type for selecting between `System.Text.Json` and Newtonsoft.Json in APIs that support both serializers.
 
 ## Install
 
@@ -13,13 +13,25 @@ Identifies the .NET JSON serialization library used to process a payload.
 dotnet add package Soenneker.Enums.JsonLibrary
 ```
 
-## What you get
+## Usage
 
-- `JsonLibraryType` — Identifies the .NET JSON serialization library used to process a payload.
+```csharp
+using Soenneker.Enums.JsonLibrary;
 
-## API at a glance
+JsonLibraryType library = JsonLibraryType.SystemTextJson;
+int value = library.Value; // 0
 
-| API | What it does | Result / important behavior |
-| --- | --- | --- |
-| `JsonLibraryType.SystemTextJson` | The built-in `System.Text.Json` serializer. | The built-in `System.Text.Json` serializer. |
-| `JsonLibraryType.Newtonsoft` | The Newtonsoft.Json serializer, also known as Json.NET. | The Newtonsoft.Json serializer, also known as Json.NET. |
+if (JsonLibraryType.TryFromValue(configuredValue, out JsonLibraryType? parsed))
+{
+    library = parsed;
+}
+```
+
+| Value | Numeric value | Serializer |
+| --- | ---: | --- |
+| `SystemTextJson` | `0` | `System.Text.Json` |
+| `Newtonsoft` | `1` | Newtonsoft.Json / Json.NET |
+
+The generated `System.Text.Json` converter writes the numeric value and accepts only defined values when reading. `FromValue` throws for an unknown integer; use `TryFromValue` when reading configuration or requests. `FromName` and `TryFromName` use the C# member names.
+
+This package identifies a serializer; it does not serialize content or provide serializer settings. The consuming API must perform the dispatch and define the options used by each library. The two serializers can differ in naming, converters, reference handling, null handling, and accepted input, so selecting one does not guarantee identical payload behavior.
