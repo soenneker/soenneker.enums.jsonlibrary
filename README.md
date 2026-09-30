@@ -5,7 +5,7 @@
 
 # Soenneker.Enums.JsonLibrary
 
-An integer-backed enum-value type for selecting between `System.Text.Json` and Newtonsoft.Json in APIs that support both serializers.
+An integer-backed enum-value type identifying `System.Text.Json`.
 
 ## Install
 
@@ -30,8 +30,7 @@ if (JsonLibraryType.TryFromValue(configuredValue, out JsonLibraryType? parsed))
 | Value | Numeric value | Serializer |
 | --- | ---: | --- |
 | `SystemTextJson` | `0` | `System.Text.Json` |
-| `Newtonsoft` | `1` | Newtonsoft.Json / Json.NET |
 
 The generated `System.Text.Json` converter writes the numeric value and accepts only defined values when reading. `FromValue` throws for an unknown integer; use `TryFromValue` when reading configuration or requests. `FromName` and `TryFromName` use the C# member names.
 
-This package identifies a serializer; it does not serialize content or provide serializer settings. The consuming API must perform the dispatch and define the options used by each library. The two serializers can differ in naming, converters, reference handling, null handling, and accepted input, so selecting one does not guarantee identical payload behavior.
+This package identifies a serializer; it does not serialize content or provide serializer settings. The consuming API defines the serializer options.

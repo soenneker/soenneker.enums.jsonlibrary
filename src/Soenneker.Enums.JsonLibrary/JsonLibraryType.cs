@@ -12,9 +12,4 @@ public sealed partial class JsonLibraryType
     /// The built-in <c>System.Text.Json</c> serializer.
     /// </summary>
     public static readonly JsonLibraryType SystemTextJson = new(0);
-
-    /// <summary>
-    /// The Newtonsoft.Json serializer, also known as Json.NET.
-    /// </summary>
-    public static readonly JsonLibraryType Newtonsoft = new(1);
 }
